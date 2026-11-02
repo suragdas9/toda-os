@@ -1,0 +1,301 @@
+
+Merging object attributes
+
+
+Merging program properties
+
+
+Discarded input sections
+
+ .note.gnu.property
+                0x0000000000000000        0x0 build/kernel/arch/arm64/interrupts.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000040080000                . = 0x40080000
+
+.text           0x0000000040080000     0x4ce8
+ *(.text.boot)
+ .text.boot     0x0000000040080000       0x78 build/bootloader/boot.o
+                0x0000000040080000                _start
+ *(.text)
+ .text          0x0000000040080078        0x0 build/bootloader/boot.o
+ *fill*         0x0000000040080078      0x788 
+ .text          0x0000000040080800      0xb70 build/kernel/arch/arm64/vectors.o
+                0x0000000040080800                vectors_start
+                0x000000004008131c                set_vbar_el1
+                0x0000000040081328                cpu_switch_to
+ .text          0x0000000040081370      0x234 build/kernel/core/main.o
+                0x0000000040081370                toda_init
+                0x00000000400813e0                kernel_halt
+                0x0000000040081400                kernel_panic
+                0x0000000040081440                kernel_main
+ *fill*         0x00000000400815a4        0xc 
+ .text          0x00000000400815b0     0x127c build/kernel/core/shell.o
+                0x0000000040081600                shell_run
+ *fill*         0x000000004008282c        0x4 
+ .text          0x0000000040082830      0x204 build/kernel/drivers/uart/uart.o
+                0x0000000040082830                uart_init
+                0x0000000040082880                uart_putc
+                0x00000000400828b0                uart_print
+                0x0000000040082900                uart_newline
+                0x0000000040082940                uart_print_hex
+                0x00000000400829a0                uart_print_dec
+ *fill*         0x0000000040082a34        0xc 
+ .text          0x0000000040082a40      0x1dc build/kernel/drivers/timer/timer.o
+                0x0000000040082a40                timer_init
+                0x0000000040082b20                timer_handler
+                0x0000000040082b40                timer_get_ticks
+                0x0000000040082b50                timer_get_uptime_ms
+                0x0000000040082b90                timer_get_frequency
+                0x0000000040082ba0                timer_sleep_ms
+ *fill*         0x0000000040082c1c        0x4 
+ .text          0x0000000040082c20      0xa84 build/kernel/drivers/display/fb.o
+                0x0000000040082ca0                fb_init
+                0x0000000040082cf0                fb_get_buffer
+                0x0000000040082d00                fb_clear
+                0x0000000040082d20                fb_draw_pixel
+                0x0000000040082d40                fb_draw_rect
+                0x0000000040082e10                fb_draw_gradient_v
+                0x0000000040082f10                fb_draw_rounded_rect
+                0x00000000400830a0                fb_draw_circle
+                0x0000000040083150                fb_draw_circle_outline
+                0x0000000040083220                fb_draw_char
+                0x0000000040083320                fb_draw_string
+                0x0000000040083390                fb_draw_string_large
+                0x0000000040083550                fb_draw_string_huge
+ *fill*         0x00000000400836a4        0xc 
+ .text          0x00000000400836b0      0x7e0 build/kernel/ui/gui.o
+                0x00000000400836b0                gui_render_statusbar
+                0x0000000040083860                gui_render_wallpaper
+                0x0000000040083890                gui_draw_app_icon
+                0x0000000040083990                gui_render_homescreen
+                0x0000000040083c80                gui_render_dialer
+                0x0000000040083df0                gui_set_screen
+                0x0000000040083e10                gui_init
+                0x0000000040083e70                gui_render
+ .text          0x0000000040083e90      0x39c build/kernel/mm/memory.o
+                0x0000000040083e90                memory_init
+                0x0000000040083f50                page_alloc
+                0x0000000040083fb0                pages_alloc
+                0x0000000040084060                page_free
+                0x00000000400840b0                kmalloc
+                0x00000000400840e0                kfree
+                0x00000000400840f0                toda_memset
+                0x0000000040084110                toda_memcpy
+                0x0000000040084130                toda_memcmp
+                0x0000000040084170                memcpy
+                0x0000000040084190                memset
+                0x00000000400841b0                memcmp
+                0x00000000400841f0                memory_total
+                0x0000000040084200                memory_free
+                0x0000000040084210                memory_used
+ *fill*         0x000000004008422c        0x4 
+ .text          0x0000000040084230       0x88 build/kernel/security/security.o
+                0x0000000040084230                boot_verify_chain
+                0x00000000400842a0                security_init
+                0x00000000400842b0                security_check_process
+ *fill*         0x00000000400842b8        0x8 
+ .text          0x00000000400842c0      0x6a8 build/kernel/proc/process.o
+                0x0000000040084460                process_init
+                0x0000000040084580                process_create
+                0x0000000040084590                process_yield
+                0x00000000400846f0                scheduler_yield
+                0x0000000040084700                process_exit
+                0x00000000400847d0                scheduler_tick
+                0x0000000040084850                scheduler_start
+                0x0000000040084880                process_reap_zombies
+                0x00000000400848f0                process_get_current
+                0x0000000040084910                process_get_by_index
+                0x0000000040084930                process_get_count
+                0x0000000040084940                process_state_name
+ *fill*         0x0000000040084968        0x8 
+ .text          0x0000000040084970      0x378 build/kernel/arch/arm64/interrupts.o
+                0x0000000040084970                gic_init
+                0x0000000040084a10                gic_enable_irq
+                0x0000000040084a40                gic_disable_irq
+                0x0000000040084a70                register_irq_handler
+                0x0000000040084ab0                interrupts_init
+                0x0000000040084ae0                irq_enable
+                0x0000000040084af0                irq_disable
+                0x0000000040084b00                irq_is_enabled
+                0x0000000040084b10                handle_irq_exception
+                0x0000000040084ba0                handle_sync_exception
+                0x0000000040084c30                handle_fiq_exception
+                0x0000000040084c40                handle_serror_exception
+                0x0000000040084ca0                handle_unhandled_exception
+ *(.text.*)
+
+.iplt           0x0000000040084ce8        0x0
+ .iplt          0x0000000040084ce8        0x0 build/bootloader/boot.o
+
+.rodata         0x0000000040084cf0     0x2c0c
+ *(.rodata)
+ .rodata        0x0000000040084cf0      0x600 build/kernel/drivers/display/fb.o
+ .rodata        0x00000000400852f0       0x60 build/kernel/ui/gui.o
+ .rodata        0x0000000040085350       0x40 build/kernel/proc/process.o
+ *(.rodata.*)
+ .rodata.str1.8
+                0x0000000040085390     0x256c build/kernel/core/main.o
+                                        0x5d1 (size before relaxing)
+ .rodata.str1.8
+                0x00000000400878fc        0x0 build/kernel/core/shell.o
+                                       0x1872 (size before relaxing)
+ .rodata.str1.8
+                0x00000000400878fc        0x0 build/kernel/drivers/uart/uart.o
+                                         0x11 (size before relaxing)
+ .rodata.str1.8
+                0x00000000400878fc        0x0 build/kernel/drivers/timer/timer.o
+                                         0x83 (size before relaxing)
+ .rodata.str1.8
+                0x00000000400878fc        0x0 build/kernel/drivers/display/fb.o
+                                         0x73 (size before relaxing)
+ .rodata.str1.8
+                0x00000000400878fc        0x0 build/kernel/ui/gui.o
+                                        0x21a (size before relaxing)
+ .rodata.str1.8
+                0x00000000400878fc        0x0 build/kernel/mm/memory.o
+                                         0x46 (size before relaxing)
+ .rodata.str1.8
+                0x00000000400878fc        0x0 build/kernel/security/security.o
+                                        0x142 (size before relaxing)
+ .rodata.str1.8
+                0x00000000400878fc        0x0 build/kernel/proc/process.o
+                                        0x107 (size before relaxing)
+ .rodata.str1.8
+                0x00000000400878fc        0x0 build/kernel/arch/arm64/interrupts.o
+                                        0x1dc (size before relaxing)
+
+.eh_frame       0x0000000040087900      0xa2c
+ .eh_frame      0x0000000040087900       0x90 build/kernel/core/main.o
+ .eh_frame      0x0000000040087990       0x58 build/kernel/core/shell.o
+                                         0x68 (size before relaxing)
+ .eh_frame      0x00000000400879e8       0x98 build/kernel/drivers/uart/uart.o
+                                         0xb0 (size before relaxing)
+ .eh_frame      0x0000000040087a80       0xa0 build/kernel/drivers/timer/timer.o
+                                         0xb0 (size before relaxing)
+ .eh_frame      0x0000000040087b20      0x260 build/kernel/drivers/display/fb.o
+                                        0x270 (size before relaxing)
+ .eh_frame      0x0000000040087d80      0x128 build/kernel/ui/gui.o
+                                        0x140 (size before relaxing)
+ .eh_frame      0x0000000040087ea8      0x140 build/kernel/mm/memory.o
+                                        0x150 (size before relaxing)
+ .eh_frame      0x0000000040087fe8       0x48 build/kernel/security/security.o
+                                         0x60 (size before relaxing)
+ .eh_frame      0x0000000040088030      0x1a8 build/kernel/proc/process.o
+                                        0x1b8 (size before relaxing)
+ .eh_frame      0x00000000400881d8      0x154 build/kernel/arch/arm64/interrupts.o
+                                        0x168 (size before relaxing)
+
+.rela.dyn       0x0000000040088330        0x0
+ .rela.iplt     0x0000000040088330        0x0 build/bootloader/boot.o
+ .rela.text.boot
+                0x0000000040088330        0x0 build/bootloader/boot.o
+                0x0000000040089000                . = ALIGN (0x1000)
+
+.data           0x0000000040089000       0x14
+ *(.data)
+ .data          0x0000000040089000        0x0 build/bootloader/boot.o
+ .data          0x0000000040089000        0x0 build/kernel/arch/arm64/vectors.o
+ .data          0x0000000040089000        0x0 build/kernel/core/main.o
+ .data          0x0000000040089000        0x0 build/kernel/core/shell.o
+ .data          0x0000000040089000        0x0 build/kernel/drivers/uart/uart.o
+ .data          0x0000000040089000        0x0 build/kernel/drivers/timer/timer.o
+ .data          0x0000000040089000        0x0 build/kernel/drivers/display/fb.o
+ .data          0x0000000040089000        0x4 build/kernel/ui/gui.o
+ *fill*         0x0000000040089004        0x4 
+ .data          0x0000000040089008        0x8 build/kernel/mm/memory.o
+ .data          0x0000000040089010        0x0 build/kernel/security/security.o
+ .data          0x0000000040089010        0x4 build/kernel/proc/process.o
+ .data          0x0000000040089014        0x0 build/kernel/arch/arm64/interrupts.o
+ *(.data.*)
+
+.igot.plt       0x0000000040089018        0x0
+ .igot.plt      0x0000000040089018        0x0 build/bootloader/boot.o
+                0x0000000040089018                . = ALIGN (0x8)
+                0x0000000040089018                __bss_start = .
+
+.bss            0x0000000040089020      0xe40
+ *(.bss)
+ .bss           0x0000000040089020        0x0 build/bootloader/boot.o
+ .bss           0x0000000040089020        0x0 build/kernel/arch/arm64/vectors.o
+ .bss           0x0000000040089020        0x0 build/kernel/core/main.o
+ .bss           0x0000000040089020        0x0 build/kernel/core/shell.o
+ .bss           0x0000000040089020        0x0 build/kernel/drivers/uart/uart.o
+ .bss           0x0000000040089020       0x18 build/kernel/drivers/timer/timer.o
+ .bss           0x0000000040089038        0x0 build/kernel/drivers/display/fb.o
+ .bss           0x0000000040089038        0x0 build/kernel/ui/gui.o
+ .bss           0x0000000040089038       0x10 build/kernel/mm/memory.o
+ .bss           0x0000000040089048        0x0 build/kernel/security/security.o
+ *fill*         0x0000000040089048        0x8 
+ .bss           0x0000000040089050      0xc08 build/kernel/proc/process.o
+ *fill*         0x0000000040089c58        0x8 
+ .bss           0x0000000040089c60      0x200 build/kernel/arch/arm64/interrupts.o
+ *(.bss.*)
+ *(COMMON)
+                0x0000000040089e60                . = ALIGN (0x8)
+                0x0000000040089e60                __bss_end = .
+LOAD build/bootloader/boot.o
+LOAD build/kernel/arch/arm64/vectors.o
+LOAD build/kernel/core/main.o
+LOAD build/kernel/core/shell.o
+LOAD build/kernel/drivers/uart/uart.o
+LOAD build/kernel/drivers/timer/timer.o
+LOAD build/kernel/drivers/display/fb.o
+LOAD build/kernel/ui/gui.o
+LOAD build/kernel/mm/memory.o
+LOAD build/kernel/security/security.o
+LOAD build/kernel/proc/process.o
+LOAD build/kernel/arch/arm64/interrupts.o
+OUTPUT(build/toda-os.elf elf64-littleaarch64)
+LOAD linker stubs
+
+.comment        0x0000000000000000       0x26
+ .comment       0x0000000000000000       0x26 build/kernel/core/main.o
+                                         0x27 (size before relaxing)
+ .comment       0x0000000000000026        0x0 build/kernel/core/shell.o
+                                         0x27 (size before relaxing)
+ .comment       0x0000000000000026        0x0 build/kernel/drivers/uart/uart.o
+                                         0x27 (size before relaxing)
+ .comment       0x0000000000000026        0x0 build/kernel/drivers/timer/timer.o
+                                         0x27 (size before relaxing)
+ .comment       0x0000000000000026        0x0 build/kernel/drivers/display/fb.o
+                                         0x27 (size before relaxing)
+ .comment       0x0000000000000026        0x0 build/kernel/ui/gui.o
+                                         0x27 (size before relaxing)
+ .comment       0x0000000000000026        0x0 build/kernel/mm/memory.o
+                                         0x27 (size before relaxing)
+ .comment       0x0000000000000026        0x0 build/kernel/security/security.o
+                                         0x27 (size before relaxing)
+ .comment       0x0000000000000026        0x0 build/kernel/proc/process.o
+                                         0x27 (size before relaxing)
+ .comment       0x0000000000000026        0x0 build/kernel/arch/arm64/interrupts.o
+                                         0x27 (size before relaxing)
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/kernel/core/main.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/kernel/core/shell.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/kernel/drivers/uart/uart.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/kernel/drivers/timer/timer.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/kernel/drivers/display/fb.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/kernel/ui/gui.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/kernel/mm/memory.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/kernel/security/security.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/kernel/proc/process.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/kernel/arch/arm64/interrupts.o
